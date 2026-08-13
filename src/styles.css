@@ -1,0 +1,247 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Pastel palette */
+  --color-lavender: #cdb4db;
+  --color-pale-pink: #ffc8dd;
+  --color-carnation: #ffafcc;
+  --color-light-sky-blue: #bde0fe;
+  --color-soft-blue: #a2d2ff;
+  --color-cream: #ffffff;
+  --color-deep-lavender: #1f2937;
+
+  /* Primary accent — pastel pink & blue */
+  --color-cyan-200: #bde0fe;
+  --color-cyan-300: #a2d2ff;
+  --color-cyan-400: #a2d2ff;
+  --color-cyan-500: #ffafcc;
+  --color-cyan-950: #1f2937;
+
+  /* Secondary — soft blue */
+  --color-indigo-400: #a2d2ff;
+  --color-indigo-500: #a2d2ff;
+  --color-indigo-600: #8ec5f5;
+
+  /* Success / available states — bright pink accent */
+  --color-emerald-300: #ffc8dd;
+  --color-emerald-400: #ffafcc;
+  --color-emerald-500: #ffafcc;
+
+  /* Tertiary accents — pastel purple */
+  --color-purple-400: #cdb4db;
+  --color-purple-500: #cdb4db;
+  --color-violet-400: #cdb4db;
+  --color-violet-500: #cdb4db;
+
+  /* Badge tones */
+  --color-red-400: #ffafcc;
+  --color-red-500: #ff8fb8;
+  --color-orange-500: #ffc8dd;
+  --color-amber-400: #bde0fe;
+  --color-amber-500: #a2d2ff;
+  --color-yellow-500: #ffc8dd;
+  --color-teal-500: #a2d2ff;
+
+  /* Slate — light mode scale */
+  --color-slate-950: #ffffff;
+  --color-slate-900: #1f2937;
+  --color-slate-800: #374151;
+  --color-slate-700: #4b5563;
+  --color-slate-600: #4b5563;
+  --color-slate-500: #6b7280;
+  --color-slate-400: #9ca3af;
+  --color-slate-300: #d1d5db;
+  --color-slate-200: #e5e7eb;
+  --color-slate-100: #f9fafb;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --foreground: #1f2937;
+  --paper: #ffffff;
+  --ink: #1f2937;
+  --surface: #ffffff;
+  --surface-2: #f9fafb;
+  --card: #ffffff;
+  --card-foreground: #1f2937;
+  --popover: #ffffff;
+  --popover-foreground: #1f2937;
+  --primary: #ffafcc;
+  --primary-foreground: #1f2937;
+  --secondary: #f9fafb;
+  --secondary-foreground: #1f2937;
+  --muted: #f3f4f6;
+  --muted-foreground: #4b5563;
+  --accent: rgba(255, 200, 221, 0.25);
+  --accent-foreground: #a2d2ff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #cdb4db;
+  --input: rgba(205, 180, 219, 0.4);
+  --ring: #a2d2ff;
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-raised: 0 16px 32px -14px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(205, 180, 219, 0.3);
+  --pink-accent: #ffafcc;
+  --pink-accent-muted: rgba(255, 200, 221, 0.3);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #1f2937;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(189, 224, 254, 0.25) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(255, 200, 221, 0.2) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(205, 180, 219, 0.15) 0px, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: rgba(255, 200, 221, 0.5);
+    color: #1f2937;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f9fafb;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(205, 180, 219, 0.6);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 200, 221, 0.8);
+  }
+}
+
+@utility panel {
+  background-color: #ffffff;
+  border: 1px solid rgba(205, 180, 219, 0.45);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &:hover {
+    border-color: #ffc8dd;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-raised);
+  }
+}
+
+@utility panel-static {
+  background-color: #ffffff;
+  border: 1px solid rgba(205, 180, 219, 0.45);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffafcc;
+  font-weight: 600;
+}
+
+@utility divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(205, 180, 219, 0.5),
+    transparent
+  );
+}
+
+@utility gradient-text {
+  background: linear-gradient(135deg, #1f2937 0%, #4b5563 50%, #ffafcc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility gradient-accent {
+  background: linear-gradient(135deg, #1f2937 0%, #4b5563 40%, #ffafcc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility gradient-accent-text {
+  background: linear-gradient(135deg, #1f2937 0%, #4b5563 40%, #ffafcc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility glow-badge {
+  box-shadow: 0 0 12px -4px rgba(255, 200, 221, 0.5);
+}
+
+@utility stat-glow {
+  text-shadow: none;
+}
+
+@utility code-block {
+  background-color: #f9fafb;
+  border: 1px solid rgba(205, 180, 219, 0.4);
+  font-family: var(--font-mono);
+}
